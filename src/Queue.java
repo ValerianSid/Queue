@@ -5,15 +5,19 @@ import java.util.NoSuchElementException;
 public class Queue {
 
     private List<String> list = new ArrayList<>();
-    private int size = list.size();
+    private Integer maxSize;
 
     public Queue() {
         this.list = list;
+
+    }
+    public Queue(int maxSize){
+        this.maxSize = maxSize;
     }
 
     public boolean add(String str){
-        if (0 < 0){
-            return false;
+        if (maxSize == null && list.size() == maxSize){
+            throw new IllegalStateException();
         }
         list.add(0, str);
         return true;
@@ -24,7 +28,12 @@ public class Queue {
         }
         return list.get(list.size() - 1);
     }
-    public void offer(){
+    public boolean offer(String str){
+            if (maxSize == null && list.size() == maxSize){
+                return false;
+            }
+        list.add(0, str);
+        return true;
 
     }
     public String peek(){

@@ -16,7 +16,7 @@ public class Queue {
     }
 
     public boolean add(String str){
-        if (maxSize == null && list.size() == maxSize){
+        if (maxSize != null && list.size() == maxSize){
             throw new IllegalStateException();
         }
         list.add(0, str);
@@ -29,7 +29,7 @@ public class Queue {
         return list.get(list.size() - 1);
     }
     public boolean offer(String str){
-            if (maxSize == null && list.size() == maxSize){
+            if (maxSize != null && list.size() == maxSize){
                 return false;
             }
         list.add(0, str);
